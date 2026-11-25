@@ -18,16 +18,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0"
-                Margin="20"
-                Command="{Binding PokazKomunikatCommand}">
-            Komunikat
-        </Button>
+        <Button Grid.Row="0" Margin="20" Command="{Binding PokazKomunikatCommand}">Komunikat</Button>
 
-        <CheckBox Grid.Row="1"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Top"
-                  IsChecked="{Binding CzyZaznaczono, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <CheckBox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" IsChecked="{Binding CzyZaznaczono, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             Tak/Nie
         </CheckBox>
     </Grid>

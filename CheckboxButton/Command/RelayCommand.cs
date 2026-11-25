@@ -1,22 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Windows.Input;
 
-namespace CheckboxButton.Commands
+namespace CheckboxButton.Command
 {
     public class RelayCommand : ICommand
     {
         private readonly Action<object?> _execute;
-        private readonly Predicate<object?>? _canExecute;
-
+        private readonly Predicate<object?> _canExecute;
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public RelayCommand(Action<object?> execute, Predicate<object?>? canExecute = null)
+        public RelayCommand(Action<object?> execute, Predicate<object?> canExecute = null)
         {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            if (execute == null)
+                throw new ArgumentException(nameof(execute));
+            _execute = execute;
             _canExecute = canExecute;
         }
 
